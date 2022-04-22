@@ -37,7 +37,7 @@ public class AlunoController {
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public Aluno create(@RequestBody Aluno aluno) {
-        aluno.setId(null);
+        aluno.setId(null);//Remover essa instrução no futuro
         return alunoService.save(aluno);
     }
 
