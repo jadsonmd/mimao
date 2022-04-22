@@ -36,7 +36,7 @@ public class AlunoController {
     @RequestMapping(value = "/alunoTo", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Aluno findByIdTo(@PathVariable String id) {
+    public Aluno findByIdTo() {
         return new Aluno("Madison");
     }
 
