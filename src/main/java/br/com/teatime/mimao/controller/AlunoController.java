@@ -38,7 +38,9 @@ public class AlunoController {
     @ResponseBody
     public Aluno create(@RequestBody Aluno aluno) {
         aluno.setId(null);//Remover essa instrução no futuro. teste.
-        System.out.println("teste CI github");
+        System.out.println("test CI github");
+
+        System.out.println("new commit");
         return alunoService.save(aluno);
     }
 
