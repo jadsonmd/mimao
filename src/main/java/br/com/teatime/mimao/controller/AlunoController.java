@@ -37,7 +37,7 @@ public class AlunoController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public Aluno findByIdTo() {
-        return new Aluno("Madison");
+        return new Aluno("Jadson");
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
