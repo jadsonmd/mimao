@@ -33,14 +33,18 @@ public class AlunoController {
         return alunoService.findById(id);
     }
 
+    @RequestMapping(value = "/alunoTo", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Aluno findByIdTo(@PathVariable String id) {
+        return new Aluno("Madison");
+    }
+
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public Aluno create(@RequestBody Aluno aluno) {
-        aluno.setId(null);//Remover essa instrução no futuro. teste.
-        System.out.println("test CI github");
-
-        System.out.println("new commit");
+        aluno.setId(null);
         return alunoService.save(aluno);
     }
 
