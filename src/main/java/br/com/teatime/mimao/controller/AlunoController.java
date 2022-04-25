@@ -38,7 +38,7 @@ public class AlunoController {
     @ResponseBody
     public Aluno findByIdTo() {
         // Teste sem usar o banco.
-        return new Aluno("Jadson");
+        return new Aluno("jadsonmd");
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
