@@ -37,6 +37,7 @@ public class AlunoController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public Aluno findByIdTo() {
+        // Teste sem usar o banco.
         return new Aluno("Jadson");
     }
 
