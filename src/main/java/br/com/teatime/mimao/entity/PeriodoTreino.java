@@ -17,6 +17,8 @@ public class PeriodoTreino {
 
     private List<Treino> treinos;
 
+    public PeriodoTreino() {}
+
     public PeriodoTreino(String nome) {
         this.nome = nome;
     }

@@ -45,6 +45,7 @@ public class AlunoController {
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public Aluno create(@RequestBody Aluno aluno) {
+        System.out.println("teste");
         aluno.setId(null);
         return alunoService.save(aluno);
     }

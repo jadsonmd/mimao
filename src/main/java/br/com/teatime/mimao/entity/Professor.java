@@ -10,6 +10,8 @@ public class Professor {
     private String id;
     private String nome;
 
+    public Professor() {}
+
     public Professor(String nome) {
         this.nome = nome;
     }

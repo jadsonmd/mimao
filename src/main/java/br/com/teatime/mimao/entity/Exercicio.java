@@ -18,6 +18,8 @@ public class Exercicio {
     private String serie;
     private String repeticao;
 
+    public Exercicio() { }
+
     public Exercicio(String nome) {
         this.nome = nome;
     }

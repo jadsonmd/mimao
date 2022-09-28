@@ -22,6 +22,9 @@ public class Aluno {
     private Professor professor;
     private List<PeriodoTreino> historicoTreino;
 
+    public Aluno() {
+    }
+
     public Aluno(String nome) {
         this.nome = nome;
     }

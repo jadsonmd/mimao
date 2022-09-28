@@ -15,6 +15,8 @@ public class Treino {
 
     private List<Exercicio> exercicios;
 
+    public Treino() {}
+
     public Treino(String nome) {
         this.nome = nome;
     }
