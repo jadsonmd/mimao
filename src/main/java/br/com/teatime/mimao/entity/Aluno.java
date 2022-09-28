@@ -16,6 +16,7 @@ public class Aluno {
     private String celular;
     private String email;
     private String descricao;
+    private String academia;
 
     private Endereco endereco;
     private Professor professor;
@@ -103,5 +104,13 @@ public class Aluno {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+    }
+
+    public String getAcademia() {
+        return academia;
+    }
+
+    public void setAcademia(String academia) {
+        this.academia = academia;
     }
 }
