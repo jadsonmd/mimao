@@ -1,15 +1,12 @@
 package br.com.teatime.mimao.controller;
 
 import br.com.teatime.mimao.entity.Aluno;
-import br.com.teatime.mimao.entity.PeriodoTreino;
-import br.com.teatime.mimao.repository.AlunoRepository;
 import br.com.teatime.mimao.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 @CrossOrigin
 @RestController
@@ -19,18 +16,18 @@ public class AlunoController {
     @Autowired
     private AlunoService alunoService;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "/{idProfessor}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Aluno> findAll() {
-        return alunoService.findAll();
+    public Set<Aluno> findAll(@PathVariable String idProfessor) {
+        return alunoService.findAll(idProfessor);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{idProfessor}/{idAluno}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Aluno findById(@PathVariable String id) {
-        return alunoService.findById(id);
+    public Aluno findById(@PathVariable String idProfessor, @PathVariable String idAluno) {
+        return alunoService.findById(idProfessor, idAluno);
     }
 
     @RequestMapping(value = "/alunoTo", method = RequestMethod.GET)
@@ -41,33 +38,26 @@ public class AlunoController {
         return new Aluno("jadsonmd");
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "{idProfessor}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public Aluno create(@RequestBody Aluno aluno) {
-        System.out.println("teste");
+    public Aluno create(@PathVariable String idProfessor, @RequestBody Aluno aluno) {
         aluno.setId(null);
-        return alunoService.save(aluno);
+        return alunoService.create(idProfessor, aluno);
     }
 
-    @RequestMapping(value = "/historicoTreinoAluno/{id}", method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
-    @ResponseBody
-    public Aluno createHistoricoTreinoAluno(@PathVariable String id, @RequestBody PeriodoTreino historicoTreino) {
-        return alunoService.saveTreinoAluno(id, historicoTreino);
-    }
-
-    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @RequestMapping(value = "{idProfessor}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Aluno update(@RequestBody Aluno aluno) {
-        return alunoService.save(aluno);
+    public Aluno update(@PathVariable String idProfessor, @RequestBody Aluno aluno) {
+        System.out.println(idProfessor);
+        return alunoService.update(idProfessor, aluno);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{idProfessor}/{idAluno}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public void delete(@PathVariable String id) {
-        alunoService.delete(id);
+    public void delete(@PathVariable String idProfessor, @PathVariable String idAluno) {
+        alunoService.delete(idProfessor, idAluno);
     }
 }

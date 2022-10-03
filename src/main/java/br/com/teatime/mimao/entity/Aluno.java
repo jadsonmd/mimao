@@ -1,9 +1,11 @@
 package br.com.teatime.mimao.entity;
 
+import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.Objects;
 
 @Document
 public class Aluno {
@@ -19,7 +21,6 @@ public class Aluno {
     private String academia;
 
     private Endereco endereco;
-    private Professor professor;
     private List<PeriodoTreino> historicoTreino;
 
     public Aluno() {
@@ -101,19 +102,24 @@ public class Aluno {
         this.endereco = endereco;
     }
 
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-
     public String getAcademia() {
         return academia;
     }
 
     public void setAcademia(String academia) {
         this.academia = academia;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Aluno aluno = (Aluno) o;
+        return id.equals(aluno.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
