@@ -1,6 +1,5 @@
 package br.com.teatime.mimao.entity;
 
-import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -21,7 +20,7 @@ public class Aluno {
     private String academia;
 
     private Endereco endereco;
-    private List<PeriodoTreino> historicoTreino;
+    private List<Ficha> fichas;
 
     public Aluno() {
     }
@@ -44,14 +43,6 @@ public class Aluno {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public List<PeriodoTreino> getHistoricoTreino() {
-        return historicoTreino;
-    }
-
-    public void setHistoricoTreino(List<PeriodoTreino> historicoTreino) {
-        this.historicoTreino = historicoTreino;
     }
 
     public String getSobrenome() {
@@ -108,6 +99,14 @@ public class Aluno {
 
     public void setAcademia(String academia) {
         this.academia = academia;
+    }
+
+    public List<Ficha> getFichas() {
+        return fichas;
+    }
+
+    public void setFichas(List<Ficha> fichas) {
+        this.fichas = fichas;
     }
 
     @Override

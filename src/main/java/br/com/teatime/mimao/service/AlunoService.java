@@ -48,11 +48,11 @@ public class AlunoService {
         Professor professor = professorService.findById(idProfessor);
         Set<Aluno> alunos = professor.getAlunos();
         if (alunos == null){
-            alunos = new LinkedHashSet<>();
+            professor.setAlunos(new LinkedHashSet<>());
         }
 
         aluno.setId(new ObjectId().toString());
-        alunos.add(aluno);
+        professor.getAlunos().add(aluno);
 
         professorService.save(professor);
 
@@ -92,8 +92,6 @@ public class AlunoService {
         aluno.setId(null);
 
         String alunoJson = converteAlunoToJson(aluno);
-
-        System.out.println(alunoJson);
 
         mongoTemplate.getCollection("professor").updateOne(
                 new Document("_id", new ObjectId((idProfessor))).toBsonDocument(),

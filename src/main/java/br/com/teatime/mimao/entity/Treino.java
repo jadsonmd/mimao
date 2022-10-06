@@ -17,10 +17,6 @@ public class Treino {
 
     public Treino() {}
 
-    public Treino(String nome) {
-        this.nome = nome;
-    }
-
     public String getNome() {
         return nome;
     }

@@ -50,7 +50,6 @@ public class AlunoController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public Aluno update(@PathVariable String idProfessor, @RequestBody Aluno aluno) {
-        System.out.println(idProfessor);
         return alunoService.update(idProfessor, aluno);
     }
 
